@@ -49,8 +49,3 @@ main(void)
 	return 0;
 }
 ```
-
-# Known bugs
-
-- For variants with no data, empty braces are generated. In theory it is not
-  allowed by the spec, but in practice it works well enough across compilers.
