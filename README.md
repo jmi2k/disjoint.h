@@ -1,5 +1,10 @@
 # disjoint - disjoint types (aka sum types) for C
 
+- _Almost_ C99 compliant (except anonymous structs, available as an extension
+  in almost all compilers)
+- `typedef`-friendly
+- Tiny implementation (5 SLOC) which blends with C syntax.
+
 ```c
 #include <stdio.h>
 #include "disjoint.h"
