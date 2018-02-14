@@ -6,6 +6,7 @@
 - Tiny implementation (5 SLOC) which blends with C syntax.
 
 ```c
+#include <assert.h>
 #include <stdio.h>
 #include "disjoint.h"
 
@@ -33,9 +34,15 @@ takebottle(disjoint Machine *m)
 			*m = Empty;
 		break;
 	case BROKEN:
-		printf("ERROR %p!\n", (void *) m);
+		printf("ERROR %p: %s\n", (void *) m, m->error);
 		break;
 	}
+}
+
+void refill(disjoint Machine *m, unsigned int bottles)
+{
+	assert(variantof(*m) == EMPTY);
+	*m = Idle(bottles);
 }
 
 int
