@@ -1,6 +1,6 @@
 {
 	"name": "disjoint",
-	"version": "master",
+	"version": "0.0.1",
 	"repo": "jmi2k/disjoint.h",
 	"description": "Disjoint types (aka sum types) for C",
 	"keywords": [ "disjoint", "sum", "functional", "header" ],

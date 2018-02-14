@@ -54,3 +54,13 @@ main(void)
 	return 0;
 }
 ```
+
+# Installation using [clib](http://clibs.org)
+
+```sh
+clib install jmi2k/disjoint.h
+```
+
+# Known bugs
+
+- Under clang, `emptyvariant` causes "warning: missing field '' initializer".
