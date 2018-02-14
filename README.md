@@ -1,9 +1,7 @@
 # disjoint - disjoint types (aka sum types) for C
 
-- _Almost_ C99 compliant (except anonymous structs, available as an extension
-  in almost all compilers)
 - `typedef`-friendly
-- Tiny implementation (5 SLOC) which blends with C syntax.
+- Tiny implementation (<10 SLOC) which blends nicely with C syntax.
 
 ```c
 #include <assert.h>
@@ -11,7 +9,7 @@
 #include "disjoint.h"
 
 disjoint Machine { variants(EMPTY, IDLE, BROKEN) {
-	#define Empty variant(disjoint Machine, EMPTY)
+	#define Empty emptyvariant(disjoint Machine, EMPTY)
 
 	#define Idle(B) variant(disjoint Machine, IDLE, .bottles = B)
 	unsigned int bottles;
