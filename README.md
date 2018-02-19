@@ -8,16 +8,16 @@
 #include <stdio.h>
 #include "disjoint.h"
 
-disjoint Machine { variants(EMPTY, IDLE, BROKEN) {
-	#define Empty emptyvariant(disjoint Machine, EMPTY)
-
-	#define Idle(B) variant(disjoint Machine, IDLE, .bottles = B)
-	unsigned int bottles;
-
-	#define Broken(E) variant(disjoint Machine, BROKEN, .error = E)
-	char *error;
+disjoint Machine {
+	variants(EMPTY, IDLE, BROKEN) {
+		unsigned int bottles;
+		char *error;
 	};
 };
+
+#define Empty emptyvariant(disjoint Machine, EMPTY)
+#define Idle(B) variant(disjoint Machine, IDLE, .bottles = B)
+#define Broken(E) variant(disjoint Machine, BROKEN, .error = E)
 
 void
 takebottle(disjoint Machine *m)
@@ -37,7 +37,8 @@ takebottle(disjoint Machine *m)
 	}
 }
 
-void refill(disjoint Machine *m, unsigned int bottles)
+void
+refill(disjoint Machine *m, unsigned int bottles)
 {
 	assert(variantof(*m) == EMPTY);
 	*m = Idle(bottles);
